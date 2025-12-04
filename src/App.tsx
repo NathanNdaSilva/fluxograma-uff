@@ -8,6 +8,7 @@ import {
   addEdge,
   MiniMap,
   BackgroundVariant,
+  Panel, // <--- Importamos o Panel para criar botões na tela
   type Connection,
   type Node,
 } from '@xyflow/react';
@@ -18,7 +19,6 @@ import { initialNodes, initialEdges } from './nodes-edges';
 import { getLayoutedElements } from './utils';
 import CourseNode from './CourseNode';
 
-// 1. Calcula o layout padrão (do arquivo)
 const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
   initialNodes,
   initialEdges
@@ -27,8 +27,6 @@ const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
 const FLOW_KEY = 'meu-fluxo-v1';
 
 export default function App() {
-  // 2. CORREÇÃO: Preparamos os dados ANTES de chamar o hook
-  // Tenta ler do navegador. Se der erro ou não existir, usa o padrão.
   const savedNodes = useMemo(() => {
     try {
       const saved = localStorage.getItem(FLOW_KEY);
@@ -36,9 +34,8 @@ export default function App() {
     } catch {
       return layoutedNodes;
     }
-  }, []); // Array vazio = roda só uma vez ao iniciar
+  }, []);
 
-  // Agora passamos o valor direto (savedNodes) e não uma função
   const [nodes, setNodes, onNodesChange] = useNodesState(savedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
 
@@ -46,7 +43,6 @@ export default function App() {
     course: CourseNode,
   }), []);
 
-  // Salva no navegador sempre que mudar
   useEffect(() => {
     if (nodes.length > 0) {
       localStorage.setItem(FLOW_KEY, JSON.stringify(nodes));
@@ -58,9 +54,7 @@ export default function App() {
     [setEdges],
   );
 
-  // 3. CORREÇÃO: Tipagem correta para evitar o @ts-ignore
   const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
-    // Dizemos que 'cycle' é um Objeto onde Chave é string e Valor é string
     const cycle: Record<string, string> = {
       pendente: 'cursando',
       cursando: 'aprovado',
@@ -72,21 +66,22 @@ export default function App() {
       nds.map((n) => {
         if (n.id === node.id) {
           const currentStatus = (n.data.status as string) || 'pendente';
-          // Agora o TypeScript sabe que 'cycle' aceita qualquer string como chave
           const nextStatus = cycle[currentStatus] || 'pendente';
           
-          return {
-            ...n,
-            data: {
-              ...n.data,
-              status: nextStatus,
-            },
-          };
+          return { ...n, data: { ...n.data, status: nextStatus } };
         }
         return n;
       })
     );
   }, [setNodes]);
+
+  // Função para limpar tudo
+  const resetProgress = () => {
+    if (confirm('Tem certeza? Isso apagará todo o seu progresso salvo.')) {
+      localStorage.removeItem(FLOW_KEY);
+      window.location.reload();
+    }
+  };
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
@@ -103,6 +98,26 @@ export default function App() {
         <Controls />
         <MiniMap />
         <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
+        
+        {/* Painel com o Botão de Reset */}
+        <Panel position="top-right">
+          <button 
+            onClick={resetProgress}
+            style={{
+              padding: '8px 16px',
+              borderRadius: '5px',
+              border: 'none',
+              background: '#dc2626',
+              color: 'white',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+            }}
+          >
+            Limpar Progresso
+          </button>
+        </Panel>
+
       </ReactFlow>
     </div>
   );

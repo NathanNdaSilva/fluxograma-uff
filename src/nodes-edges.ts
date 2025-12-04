@@ -19,24 +19,24 @@ export const initialNodes: CourseNode[] = [
   { id: 'TCC00346', type: 'course', position, data: { code: 'TCC00346', label: 'Lab. Resolução Problemas', status: 'aprovado' } },
 
   // --- 2º PERÍODO ---
-  { id: 'GAN00140', type: 'course', position, data: { code: 'GAN00140', label: 'Álgebra Linear', status: 'pendente' } },
-  { id: 'GMA00154', type: 'course', position, data: { code: 'GMA00154', label: 'Cálculo I', status: 'pendente' } },
-  { id: 'TCC00301', type: 'course', position, data: { code: 'TCC00301', label: 'Lab. Prog. Jogos', status: 'pendente' } },
-  { id: 'TCC00347', type: 'course', position, data: { code: 'TCC00347', label: 'Programação Estruturada', status: 'pendente' } },
-  { id: 'TET00347', type: 'course', position, data: { code: 'TET00347', label: 'Circuitos Digitais', status: 'pendente' } },
+  { id: 'GAN00140', type: 'course', position, data: { code: 'GAN00140', label: 'Álgebra Linear', status: 'cursando' } },
+  { id: 'GMA00154', type: 'course', position, data: { code: 'GMA00154', label: 'Cálculo I', status: 'aprovado' } },
+  { id: 'TCC00301', type: 'course', position, data: { code: 'TCC00301', label: 'Lab. Prog. Jogos', status: 'aprovado' } },
+  { id: 'TCC00347', type: 'course', position, data: { code: 'TCC00347', label: 'Programação Estruturada', status: 'aprovado' } },
+  { id: 'TET00347', type: 'course', position, data: { code: 'TET00347', label: 'Circuitos Digitais', status: 'aprovado' } },
 
   // --- 3º PERÍODO ---
-  { id: 'GAN00166', type: 'course', position, data: { code: 'GAN00166', label: 'Lógica p/ Comp.', status: 'pendente' } },
+  { id: 'GAN00166', type: 'course', position, data: { code: 'GAN00166', label: 'Lógica p/ Comp.', status: 'cursando' } },
   { id: 'GF100158', type: 'course', position, data: { code: 'GF100158', label: 'Física I', status: 'pendente' } },
-  { id: 'GMA00155', type: 'course', position, data: { code: 'GMA00155', label: 'Cálculo II', status: 'pendente' } },
+  { id: 'GMA00155', type: 'course', position, data: { code: 'GMA00155', label: 'Cálculo II', status: 'cursando' } },
   { id: 'TCC00286', type: 'course', position, data: { code: 'TCC00286', label: 'Arq. Computadores', status: 'pendente' } },
-  { id: 'TCC00328', type: 'course', position, data: { code: 'TCC00328', label: 'Prog. Orientada a Objetos', status: 'pendente' } },
-  { id: 'TCC00348', type: 'course', position, data: { code: 'TCC00348', label: 'Estruturas de Dados', status: 'pendente' } },
+  { id: 'TCC00328', type: 'course', position, data: { code: 'TCC00328', label: 'Prog. Orientada a Objetos', status: 'aprovado' } },
+  { id: 'TCC00348', type: 'course', position, data: { code: 'TCC00348', label: 'Estruturas de Dados', status: 'aprovado' } },
 
   // --- 4º PERÍODO ---
   { id: 'GET00177', type: 'course', position, data: { code: 'GET00177', label: 'Estatística Básica', status: 'pendente' } },
-  { id: 'TCC00287', type: 'course', position, data: { code: 'TCC00287', label: 'Banco de Dados I', status: 'pendente' } },
-  { id: 'TCC00292', type: 'course', position, data: { code: 'TCC00292', label: 'Engenharia de Software I', status: 'pendente' } },
+  { id: 'TCC00287', type: 'course', position, data: { code: 'TCC00287', label: 'Banco de Dados I', status: 'aprovado' } },
+  { id: 'TCC00292', type: 'course', position, data: { code: 'TCC00292', label: 'Engenharia de Software I', status: 'aprovado' } },
   { id: 'TCC00304', type: 'course', position, data: { code: 'TCC00304', label: 'Linguagens de Prog.', status: 'pendente' } },
   { id: 'TCC00306', type: 'course', position, data: { code: 'TCC00306', label: 'Métodos Numéricos', status: 'pendente' } },
   { id: 'TCC00316', type: 'course', position, data: { code: 'TCC00316', label: 'Sistemas Operacionais', status: 'pendente' } },
@@ -52,7 +52,7 @@ export const initialNodes: CourseNode[] = [
   // --- 6º PERÍODO ---
   { id: 'TCC00284', type: 'course', position, data: { code: 'TCC00284', label: 'Algoritmos em Grafos', status: 'pendente' } },
   { id: 'TCC00291', type: 'course', position, data: { code: 'TCC00291', label: 'Computação Gráfica', status: 'pendente' } },
-  { id: 'TCC00293', type: 'course', position, data: { code: 'TCC00293', label: 'Engenharia de Software II', status: 'pendente' } },
+  { id: 'TCC00293', type: 'course', position, data: { code: 'TCC00293', label: 'Engenharia de Software II', status: 'cursando' } },
   { id: 'TCC00305', type: 'course', position, data: { code: 'TCC00305', label: 'Linguagens Formais', status: 'pendente' } },
   { id: 'TCC00307', type: 'course', position, data: { code: 'TCC00307', label: 'Programação Científica', status: 'pendente' } },
   { id: 'TCC00314', type: 'course', position, data: { code: 'TCC00314', label: 'Redes de Comp. II', status: 'pendente' } },
